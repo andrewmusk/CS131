@@ -1,0 +1,14 @@
+Set Functions:
+
+For these functions, the main thing I was considering was readability, conciseness and making the functions simple.
+Once I had established how to do the first few functions, the rest followed similar patterns. In doing these functions
+I choose solving them manually, rather than using the List functions. I felt that this improved my skill more and also
+made the code more readable. I could have added more base cases that might have made the functions run faster, however,
+in most cases I avoided these as they made the solution more complex. 
+
+Grammar Filter:
+
+For the grammar filter I started with the root nonterminal value in the grammar and went through each rule to see if 
+it was reachable from the root. I originally tried to go through all of the rules and check if the current rule was reachable
+by going backwards however this proved harder to write than my original solution. I feel like my current solution that seems 
+like breath first search is better anyways in it's simplicity. 

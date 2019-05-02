@@ -1,0 +1,52 @@
+Cs131 Hw2 report
+
+In my implementation of make parser I make a lot of use of make matcher and 
+they follow similar patterns. Firstly I make a call to make matcher in make 
+parser and obtain the rules needed from the matcher. I did this seperately
+as I thought it would be more complicated to do in one call. I realised the
+beginning of parser needed the rules so I just decided to alter my make matcher
+function. Make matcher was returning the acceptable suffixes in each case, 
+when valid rules were found so I just made it store the rules instead of
+working through the prefixes and suffixes. I did that in this line 
+
+Matcher: x -> x to 
+Parser_matcher: Some x -> Some (rule::x)
+
+The next part of parser is not related to make matcher at all. In this part 
+I build the parse tree from the rules. I do this in an almost opposite manner 
+to the parse tree leaves function. 
+
+I believe that this solution, though it requires more functions and similar
+code, made it more digestable and easier to understand. I tried to separate
+my functions for further readability. I initially tried combining building
+the tree and matching however, I ran into too many type errors. Futhermore
+I found that I was reaching the correct rules, however, I was struggling
+to build the correct parse tree when doing this. I also tried
+to call functions from matcher, however, because matcher was matually 
+recurisve, I couldn't reuse the code from it. 
+
+Weaknesses and potential changes.
+
+As I mentioned above, I believe I could have combined this with my make 
+matcher function as both are making similar recursive calls, however 
+I thought my approach was more simple and easier to digest. I think I 
+suffer slighlty in efficiency due to duplicatoin, which is a weakness of 
+my program. 
+
+In terms of the operations of my program I have a couple of weaknesses,
+in handling edge cases. If I had  circular rules, my
+program would run infinitely and if I had rules that lead to themselves,
+this would happen too. I would get "Stack overflow during evaluation 
+(looping recursion?)". 
+
+Furthermore, I think I could've made traversing the rules and building
+the tree more efficient. I tried other approaches but was not producing
+the correct result.  I think that I could've done better by using List 
+functions in some cases too.
+
+Another weakness is due to the heavy dependance on recursion,
+longer fragments take significantly longer to process. This could make 
+the program useless in certain situations. 
+
+I also could have been better in commenting my code. 
+
